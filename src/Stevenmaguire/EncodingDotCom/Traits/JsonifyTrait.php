@@ -25,11 +25,11 @@ trait JsonifyTrait
     }
 
     /**
-     * [isJsonable description]
+     * Detect if object is Jsonable
      *
-     * @param  [type]   [description]
+     * @param  object
      *
-     * @return boolean  [description]
+     * @return boolean
      */
     private function isJsonable($object)
     {
@@ -44,9 +44,9 @@ trait JsonifyTrait
     }
 
     /**
-     * [getAccessibleProperties description]
+     * Get accessible properties from this
      *
-     * @return [type] [description]
+     * @return array
      */
     private function getAccessibleProperties()
     {

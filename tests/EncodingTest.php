@@ -48,21 +48,34 @@ class EncodingTest extends TestCase
             ->withSource($sources)
             ->withHttps(true)
             ->send();
+    }
 
-        print_r($result);
+    /**
+     * @expectedException Stevenmaguire\EncodingDotCom\Exception
+     **/
+    public function test_It_Can_Throw_An_Error_With_Nothing()
+    {
+        $client = new Client([
+            'app_id' => getenv('ENCODING_DOT_COM_APP_ID'),
+            'user_key' => getenv('ENCODING_DOT_COM_API_USER_KEY'),
+            'api_host' => 'stepbystepdaybyday.encoding.com'
+        ]);
+        $result = $client->send();
     }
 
     public function test_It_Can_Get_System_Status()
     {
         $result = $this->client->status();
 
-        print_r($result);
+        $this->assertTrue(property_exists($result, 'status'));
+        $this->assertTrue(property_exists($result, 'status_code'));
     }
 
     public function test_It_Can_Get_Archived_System_Status()
     {
         $result = $this->client->status(0,10);
 
-        print_r($result);
+        $this->assertTrue(property_exists($result, 'paging'));
+        $this->assertTrue(property_exists($result, 'incidents'));
     }
 }

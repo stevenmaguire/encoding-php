@@ -1,7 +1,7 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
 use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
@@ -273,7 +273,7 @@ class Client
             $client = $this->getClient();
             $response = $client->$verb($path, $parameters);
             return json_decode($response->getBody());
-        } catch (ClientException $e) {
+        } catch (TransferException $e) {
             throw new Exception($e->getMessage());
         }
     }
