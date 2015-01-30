@@ -30,9 +30,9 @@ Run `composer update`
 ### Create client
 
 ```php
-    $this->client = new EncodingDotCom([
-        'app_id' => 'ENCODING_DOT_COM_APP_ID',
-        'user_key' => 'ENCODING_DOT_COM_API_USER_KEY',
+    $this->client = new Stevenmaguire\EncodingDotCom\Client([
+        'app_id' => 'YOUR_ENCODING_DOT_COM_APP_ID',
+        'user_key' => 'YOUR_ENCODING_DOT_COM_API_USER_KEY',
         'api_host' => 'manage.encoding.com'
     ]);
 ```
