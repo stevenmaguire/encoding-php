@@ -103,7 +103,7 @@ class Query implements Jsonable
      *
      * @param string $user_id
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setUserId($user_id)
     {
@@ -116,7 +116,7 @@ class Query implements Jsonable
      *
      * @param string $user_key
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setUserKey($user_key)
     {
@@ -129,7 +129,7 @@ class Query implements Jsonable
      *
      * @param string $action
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setAction($action)
     {
@@ -142,7 +142,7 @@ class Query implements Jsonable
      *
      * @param string $media_id
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function addMediaId($media_id)
     {
@@ -161,7 +161,7 @@ class Query implements Jsonable
      *
      * @param string $source
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function addSource($source)
     {
@@ -172,9 +172,9 @@ class Query implements Jsonable
     /**
      * Set split screen configuration
      *
-     * @param Stevenmaguire\EncodingDotCom\SplitScreen $split_screen
+     * @param SplitScreen $split_screen
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setSplitScreen(SplitScreen $split_screen)
     {
@@ -187,7 +187,7 @@ class Query implements Jsonable
      *
      * @param string $region
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setRegion($region)
     {
@@ -198,9 +198,9 @@ class Query implements Jsonable
     /**
      * Set notification configuration
      *
-     * @param Stevenmaguire\EncodingDotCom\Notification $notification
+     * @param Notification $notification
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setNotification(Notification $notification)
     {
@@ -216,7 +216,7 @@ class Query implements Jsonable
      *
      * @param boolean $extended
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setExtended($extended)
     {
@@ -227,9 +227,9 @@ class Query implements Jsonable
     /**
      * Set format configuration
      *
-     * @param Stevenmaguire\EncodingDotCom\Format $format
+     * @param Format $format
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     public function setFormat(Format $format)
     {

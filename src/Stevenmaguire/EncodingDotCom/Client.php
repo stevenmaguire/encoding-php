@@ -38,7 +38,7 @@ class Client
     /**
      * Query
      *
-     * @var Stevenmaguire\EncodingDotCom\Query
+     * @var Query
      */
     private $query;
 
@@ -62,7 +62,7 @@ class Client
      *
      * @param  string $action
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withAction($action, $extended = false)
     {
@@ -75,9 +75,9 @@ class Client
     /**
      * Set format
      *
-     * @param  Stevenmaguire\EncodingDotCom\Format $format
+     * @param  Format $format
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withFormat(Format $format)
     {
@@ -90,7 +90,7 @@ class Client
      *
      * @param boolean  $use_secure
      *
-     * @return Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return Client Modified client
      */
     public function withHttps($use_secure = true)
     {
@@ -103,7 +103,7 @@ class Client
      *
      * @param  string|array $media_ids
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withMediaId($media_ids)
     {
@@ -119,9 +119,9 @@ class Client
     /**
      * Set notification configuration
      *
-     * @param  Stevenmaguire\EncodingDotCom\Notification $notification
+     * @param  Notification $notification
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withNotification(Notification $notification)
     {
@@ -134,7 +134,7 @@ class Client
      *
      * @param  string $region
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withRegion($region)
     {
@@ -147,7 +147,7 @@ class Client
      *
      * @param  string|array $sources
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withSource($sources)
     {
@@ -163,9 +163,9 @@ class Client
     /**
      * Set split screen configuration
      *
-     * @param  Stevenmaguire\EncodingDotCom\SplitScreen $split_screen
+     * @param  SplitScreen $split_screen
      *
-     * @return  Stevenmaguire\EncodingDotCom\Client Modified client
+     * @return  Client Modified client
      */
     public function withSplitScreen(SplitScreen $split_screen)
     {
@@ -177,7 +177,7 @@ class Client
      * Makes a request to the Encoding.com API with Query, returns the response
      *
      * @return   stdClass The JSON response from the request
-     * @throws   Stevenmaguire\EncodingDotCom\Exception
+     * @throws   Exception
      */
     public function send()
     {
@@ -200,7 +200,7 @@ class Client
      * @param  integer|null $take
      *
      * @return   stdClass The JSON response from the request
-     * @throws   Stevenmaguire\EncodingDotCom\Exception
+     * @throws   Exception
      */
     public function status($skip = null, $take = null)
     {
@@ -235,16 +235,13 @@ class Client
     /**
      * Build and return base query with default data
      *
-     * @return Stevenmaguire\EncodingDotCom\Query
+     * @return Query
      */
     private function getBaseQuery()
     {
         $query = new Query;
         return $query->setUserId($this->app_id)
-            ->setUserKey($this->user_key)
-            ->setNotification(new JsonNotification)
-            ->setSplitScreen(new SplitScreen)
-            ->setFormat(new Format);
+            ->setUserKey($this->user_key);
     }
 
     /**
@@ -272,7 +269,7 @@ class Client
      * @param    array $parameters
      *
      * @return   stdClass The JSON response from the request
-     * @throws   Stevenmaguire\EncodingDotCom\Exception
+     * @throws   Exception
      */
     private function request($verb, $path, $parameters)
     {
