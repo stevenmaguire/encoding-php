@@ -205,24 +205,31 @@ class Client
     public function status($skip = null, $take = null)
     {
         $params = ['format' => 'json'];
-        if (is_numeric($skip) || is_numeric($take)) {
-            if (is_numeric($skip)) {
-                $params['from'] = abs($skip);
-            }
-            if (is_numeric($take)) {
-                $params['limit'] = abs($take);
-            }
-            return $this->request(
-                'get',
-                'http://status.encoding.com/archive.php',
-                ['query' => $params]
-            );
-        }
+        $this->parseStatusParams($params, $skip, $take);
+        $url = count($params) > 1 ? 'archive.php' : 'status.php';
+
         return $this->request(
             'get',
-            'http://status.encoding.com/status.php',
+            'http://status.encoding.com/'.$url,
             ['query' => $params]
         );
+    }
+
+    /**
+     * Parse the status params
+     *
+     * @param  array $params
+     * @param  integer $skip
+     * @param  integer $take
+     */
+    private function parseStatusParams(&$params, $skip, $take)
+    {
+        if (is_numeric($skip)) {
+            $params['from'] = abs($skip);
+        }
+        if (is_numeric($take)) {
+            $params['limit'] = abs($take);
+        }
     }
 
     /**
