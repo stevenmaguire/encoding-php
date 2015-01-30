@@ -273,9 +273,9 @@ class Client
             $client = $this->getClient();
             $response = $client->$verb($path, $parameters);
             return json_decode($response->getBody());
-        } catch (ClientException $e) { // @codeCoverageIgnoreStart
+        } catch (ClientException $e) {
             throw new Exception($e->getMessage());
-        } // @codeCoverageIgnoreEnd
+        }
     }
 
     /**
