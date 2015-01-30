@@ -101,7 +101,7 @@ class Client
     /**
      * Set media id
      *
-     * @param  string|array $media_id
+     * @param  string|array $media_ids
      *
      * @return  Stevenmaguire\EncodingDotCom\Client Modified client
      */
@@ -119,7 +119,7 @@ class Client
     /**
      * Set notification configuration
      *
-     * @param  Stevenmaguire\EncodingDotCom\Notification $format
+     * @param  Stevenmaguire\EncodingDotCom\Notification $notification
      *
      * @return  Stevenmaguire\EncodingDotCom\Client Modified client
      */
@@ -163,7 +163,7 @@ class Client
     /**
      * Set split screen configuration
      *
-     * @param  Stevenmaguire\EncodingDotCom\SplitScreen $format
+     * @param  Stevenmaguire\EncodingDotCom\SplitScreen $split_screen
      *
      * @return  Stevenmaguire\EncodingDotCom\Client Modified client
      */

@@ -8,6 +8,7 @@ abstract class Notification
      * Notification format
      *
      * @var string
+     * @property string $format
      */
     protected $format;
 
@@ -15,6 +16,7 @@ abstract class Notification
      * Success url
      *
      * @var string
+     * @property string $success_url
      */
     protected $success_url;
 
@@ -22,6 +24,7 @@ abstract class Notification
      * Errors url
      *
      * @var string
+     * @property string $errors_url
      */
     protected $errors_url;
 
@@ -29,6 +32,7 @@ abstract class Notification
      * Uploads url
      *
      * @var string
+     * @property string $upload_url
      */
     protected $upload_url;
 }

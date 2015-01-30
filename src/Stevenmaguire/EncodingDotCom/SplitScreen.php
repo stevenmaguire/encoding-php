@@ -137,7 +137,7 @@ class SplitScreen implements Jsonable
     /**
      * Set padding value
      *
-     * @param string $padding_property
+     * @param string $property
      * @param integer $pixels
      */
     private function setPadding($property, $pixels)

@@ -3,9 +3,9 @@
 interface Jsonable
 {
     /**
-     * [toJson description]
+     * To Json
      *
-     * @return [type] [description]
+     * @return string
      */
     public function toJson();
 }
