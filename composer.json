@@ -1,0 +1,36 @@
+{
+    "name": "stevenmaguire/encoding-php",
+    "description": "A php client for consumer Encoding.com API",
+    "version": "0.1.0",
+    "homepage" : "http://github.com/stevenmaguire/encoding-php",
+    "authors" : [
+        {
+            "name" : "Steven Maguire",
+            "email" : "stevenmaguire@gmail.com",
+            "homepage" : "http://stevenmaguire.com",
+            "role" : "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/oauth-subscriber": "0.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "tests/TestCase.php"
+        ],
+        "psr-0": {
+            "Stevenmaguire\\EncodingDotCom\\": "src/"
+        },
+        "psr-4": {
+            "Stevenmaguire\\EncodingDotCom\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stevenmaguire\\EncodingDotCom\\Test\\": "tests/src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
