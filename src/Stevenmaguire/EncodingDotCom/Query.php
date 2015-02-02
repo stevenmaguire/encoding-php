@@ -2,6 +2,21 @@
 
 use \stdClass;
 
+/**
+ * @property string $userid
+ * @property string $userkey
+ * @property string $action
+ * @property string $extended
+ * @property Format $format
+ * @property string $mediaid
+ * @property string $notify_format
+ * @property string $notify
+ * @property string $notify_encoding_errors
+ * @property string $notify_upload
+ * @property string $region
+ * @property SplitScreen $split_screen
+ * @property array $source
+ */
 class Query extends Model
 {
     /**

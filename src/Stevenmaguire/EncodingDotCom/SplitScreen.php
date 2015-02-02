@@ -1,5 +1,13 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
+/**
+ * @property integer $columns
+ * @property integer $rows
+ * @property integer $padding_bottom
+ * @property integer $padding_left
+ * @property integer $padding_right
+ * @property integer $padding_top
+ */
 class SplitScreen extends Model
 {
     /**
