@@ -9,7 +9,7 @@ use Stevenmaguire\EncodingDotCom\Model;
  * @property string $logo_mode
  * @property string $logo_threshold
  */
-class Logo extends Model
+class Watermark extends Model
 {
 
 }

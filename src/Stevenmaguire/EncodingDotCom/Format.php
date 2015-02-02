@@ -3,8 +3,26 @@
 /**
  * @property string $noise_reduction // luma_spatial:chroma_spatial:luma_temp
  * @property array $output
+ * @property string $time
+ * @property string $width
+ * @property string $height
+ * @property string $destination
  * @property string $video_codec
  * @property string $audio_codec
+ * @property string $target
+ * @property string $maps
+ * @property string $image_format
+ * @property string $resize_method
+ * @property string $sharpen_sigma
+ * @property string $remove_metadata // yes,no
+ * @property string $gravity // northwest|north|northeast|west|center|east|southwest|south|southeast
+ * @property string $shave // 9x12
+ * @property string $unsharp_radius
+ * @property string $unsharp_sigma
+ * @property string $unsharp_gain
+ * @property string $unsharp_threshold
+ * @property integer $quality
+ * @property integer $dpi
  * @property integer $bitrate
  * @property integer $audio_bitrate
  * @property integer $audio_sample_rate
@@ -34,9 +52,7 @@
  * @property integer $force_keyframes
  * @property integer $bframes // 2/0
  * @property string $gop // cgop|sgop
- * @property Meta $metadata
  * @property array $destination
- * @property Logo $logo
  * @property array $overlay // Overlay
  * @property array $text_overlay // TextOverlay
  * @property string $video_codec_parameters // "To see the example for parameters please follow this link below *",
@@ -48,6 +64,12 @@
  * @property string $video_sync // old|passthrough|cfr|vfr|auto
  * @property string $force_interlaced // tff|bff|no
  * @property string $strip_chapters // yes|no
+ * @property ClosedCaptions $closed_captions
+ * @property Meta $metadata
+ * @property Watermark $logo
+ * @property string $type // srt|scc|webvtt|dfxp
+ * @property string $strip_formatting // yes, no
+ * @property string $time_offset
  */
 class Format extends Model
 {

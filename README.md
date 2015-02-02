@@ -1,4 +1,4 @@
-# Yelp PHP Client
+# Encoding.com PHP Client
 
 [![Latest Version](https://img.shields.io/github/release/stevenmaguire/encoding-php.svg?style=flat-square)](https://github.com/stevenmaguire/encoding-php/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)

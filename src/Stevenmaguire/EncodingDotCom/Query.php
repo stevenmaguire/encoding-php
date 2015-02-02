@@ -16,6 +16,7 @@ use \stdClass;
  * @property string $region
  * @property SplitScreen $split_screen
  * @property array $source
+ * @property string $slideshow
  */
 class Query extends Model
 {
