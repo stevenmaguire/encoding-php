@@ -22,7 +22,7 @@ class SplitScreen extends Model
      *
      * @param integer $columns
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setColumns($columns = 1)
     {
@@ -34,7 +34,7 @@ class SplitScreen extends Model
      *
      * @param integer $rows
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setRows($rows = 1)
     {
@@ -42,15 +42,30 @@ class SplitScreen extends Model
     }
 
     /**
+     * Set all padding
+     *
+     * @param integer $pixels
+     *
+     * @return SplitScreen
+     */
+    public function setPadding($pixels = null)
+    {
+        return $this->setPaddingLeft($pixels)
+            ->setPaddingRight($pixels)
+            ->setPaddingBottom($pixels)
+            ->setPaddingTop($pixels);
+    }
+
+    /**
      * Set left padding
      *
      * @param integer $pixels
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setPaddingLeft($pixels = null)
     {
-        return $this->setPadding('padding_left', $pixels);
+        return $this->setPaddingAttribute('padding_left', $pixels);
     }
 
     /**
@@ -58,11 +73,11 @@ class SplitScreen extends Model
      *
      * @param integer $pixels
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setPaddingRight($pixels = null)
     {
-        return $this->setPadding('padding_right', $pixels);
+        return $this->setPaddingAttribute('padding_right', $pixels);
     }
 
     /**
@@ -70,11 +85,11 @@ class SplitScreen extends Model
      *
      * @param integer $pixels
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setPaddingTop($pixels = null)
     {
-        return $this->setPadding('padding_top', $pixels);
+        return $this->setPaddingAttribute('padding_top', $pixels);
     }
 
     /**
@@ -82,11 +97,11 @@ class SplitScreen extends Model
      *
      * @param integer $pixels
      *
-     * @return Stevenmaguire\EncodingDotCom\SplitScreen
+     * @return SplitScreen
      */
     public function setPaddingBottom($pixels = null)
     {
-        return $this->setPadding('padding_bottom', $pixels);
+        return $this->setPaddingAttribute('padding_bottom', $pixels);
     }
 
     /**
@@ -97,7 +112,7 @@ class SplitScreen extends Model
      *
      * @return  SplitScreen
      */
-    private function setPadding($property, $pixels)
+    private function setPaddingAttribute($property, $pixels)
     {
         if (is_null($pixels)) {
             $pixels = $this->default_padding;
