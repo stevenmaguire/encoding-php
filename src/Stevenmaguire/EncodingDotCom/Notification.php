@@ -1,5 +1,11 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
+/**
+ * @property string $format
+ * @property string $success_url
+ * @property string $errors_url
+ * @property string $upload_url
+ */
 abstract class Notification extends Model
 {
     /**
