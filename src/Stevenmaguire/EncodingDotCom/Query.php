@@ -1,103 +1,9 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
 use \stdClass;
-use Stevenmaguire\EncodingDotCom\Contracts\Jsonable;
 
-class Query implements Jsonable
+class Query extends Model
 {
-    use Traits\JsonifyTrait;
-
-    /**
-     * App id
-     *
-     * @var string
-     */
-    protected $userid;
-
-    /**
-     * API user key
-     *
-     * @var string
-     */
-    protected $userkey;
-
-    /**
-     * Action
-     *
-     * @var string
-     */
-    protected $action;
-
-    /**
-     * Media id
-     *
-     * @var string
-     */
-    protected $mediaid;
-
-    /**
-     * Display extended results
-     *
-     * @var string
-     */
-    protected $extended;
-
-    /**
-     * Sources
-     *
-     * @var array
-     */
-    protected $source = [];
-
-    /**
-     * Split screen configuration
-     *
-     * @var SplitScreen
-     */
-    protected $split_screen;
-
-    /**
-     * Region
-     *
-     * @var string
-     */
-    protected $region;
-
-    /**
-     * Notification format
-     *
-     * @var string
-     */
-    protected $notify_format;
-
-    /**
-     * Notification url for success
-     *
-     * @var string
-     */
-    protected $notify;
-
-    /**
-     * Notification url for errors
-     *
-     * @var string
-     */
-    protected $notify_encoding_errors;
-
-    /**
-     * Notification url for uploads
-     *
-     * @var string
-     */
-    protected $notify_upload;
-
-    /**
-     * Encoding format configuration
-     *
-     * @var Format
-     */
-    protected $format;
-
     /**
      * Set user id
      *
@@ -107,8 +13,7 @@ class Query implements Jsonable
      */
     public function setUserId($user_id)
     {
-        $this->userid = $user_id;
-        return $this;
+        return $this->setAttribute('userid', $user_id);
     }
 
     /**
@@ -120,8 +25,7 @@ class Query implements Jsonable
      */
     public function setUserKey($user_key)
     {
-        $this->userkey = $user_key;
-        return $this;
+        return $this->setAttribute('userkey', $user_key);
     }
 
     /**
@@ -133,8 +37,7 @@ class Query implements Jsonable
      */
     public function setAction($action)
     {
-        $this->action = $action;
-        return $this;
+        return $this->setAttribute('action', $action);
     }
 
     /**
@@ -146,14 +49,15 @@ class Query implements Jsonable
      */
     public function addMediaId($media_id)
     {
-        if (empty($this->mediaid)) {
+        $current_media_id = $this->getAttribute('mediaid');
+        if (empty($current_media_id)) {
             $media_ids = [];
         } else {
-            $media_ids = explode(',', $this->mediaid);
+            $media_ids = explode(',', $current_media_id);
         }
         $media_ids[] = $media_id;
-        $this->mediaid = implode(',', $media_ids);
-        return $this;
+        $updated_media_id = implode(',', $media_ids);
+        return $this->setAttribute('mediaid', $updated_media_id);
     }
 
     /**
@@ -165,8 +69,12 @@ class Query implements Jsonable
      */
     public function addSource($source)
     {
-        $this->source[] = $source;
-        return $this;
+        $current_sources = $this->getAttribute('source');
+        if (empty($current_sources)) {
+            $current_sources = [];
+        }
+        $current_sources[] = $source;
+        return $this->setAttribute('source', $current_sources);
     }
 
     /**
@@ -178,8 +86,7 @@ class Query implements Jsonable
      */
     public function setSplitScreen(SplitScreen $split_screen)
     {
-        $this->split_screen = $split_screen;
-        return $this;
+        return $this->setAttribute('split_screen', $split_screen);
     }
 
     /**
@@ -191,8 +98,7 @@ class Query implements Jsonable
      */
     public function setRegion($region)
     {
-        $this->region = $region;
-        return $this;
+        return $this->setAttribute('region', $region);
     }
 
     /**
@@ -204,11 +110,10 @@ class Query implements Jsonable
      */
     public function setNotification(Notification $notification)
     {
-        $this->notify_format = $notification->format;
-        $this->notify = $notification->success_url;
-        $this->notify_encoding_errors = $notification->errors_url;
-        $this->notify_upload = $notification->upload_url;
-        return $this;
+        return $this->setAttribute('notify_format', $notification->format)
+            ->setAttribute('notify', $notification->success_url)
+            ->setAttribute('notify_encoding_errors', $notification->error_url)
+            ->setAttribute('notify_upload', $notification->upload_url);
     }
 
     /**
@@ -220,8 +125,7 @@ class Query implements Jsonable
      */
     public function setExtended($extended)
     {
-        $this->extended = $extended ? "yes" : null;
-        return $this;
+        return $this->setAttribute('extended', ($extended ? "yes" : null));
     }
 
     /**
@@ -233,8 +137,7 @@ class Query implements Jsonable
      */
     public function setFormat(Format $format)
     {
-        $this->format = $format;
-        return $this;
+        return $this->setAttribute('format', $format);
     }
 
     /**

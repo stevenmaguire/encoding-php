@@ -1,15 +1,7 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
-/**
- * @property string $format
- * @property string $success_url
- * @property string $errors_url
- * @property string $upload_url
- */
-abstract class Notification
+abstract class Notification extends Model
 {
-    use Traits\GetTrait;
-
     /**
      * Notification format
      *
@@ -18,23 +10,46 @@ abstract class Notification
     protected $format;
 
     /**
-     * Success url
-     *
-     * @var string
+     * Create new notification
      */
-    protected $success_url;
+    public function __construct()
+    {
+        $this->setAttribute('format', $this->format);
+    }
 
     /**
-     * Errors url
+     * Url to use for error notifications
      *
-     * @var string
+     * @param  string $url
+     *
+     * @return Notification
      */
-    protected $errors_url;
+    public function forError($url)
+    {
+        return $this->setAttribute('error_url', $url);
+    }
 
     /**
-     * Uploads url
+     * Url to use for success notifications
      *
-     * @var string
+     * @param  string $url
+     *
+     * @return Notification
      */
-    protected $upload_url;
+    public function forSuccess($url)
+    {
+        return $this->setAttribute('success_url', $url);
+    }
+
+    /**
+     * Url to use for upload notifications
+     *
+     * @param  string $url
+     *
+     * @return Notification
+     */
+    public function forUpload($url)
+    {
+        return $this->setAttribute('upload_url', $url);
+    }
 }

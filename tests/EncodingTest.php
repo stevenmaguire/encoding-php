@@ -27,6 +27,10 @@ class EncodingTest extends TestCase
         $source = 'url';
         $sources = ['url','url'];
 
+        $notification->forError($source)
+            ->forSuccess($source)
+            ->forUpload($source);
+
         $split_screen->setRows(1)
             ->setColumns(1)
             ->setPaddingLeft(10)
@@ -36,8 +40,7 @@ class EncodingTest extends TestCase
 
         $bad_prop = $notification->bad_prop;
 
-        $result = $this->client
-            ->withAction($action, false)
+        $query = $this->client->withAction($action, false)
             ->withFormat($format)
             ->withMediaId($media_id)
             ->withMediaId($media_id)
@@ -47,7 +50,13 @@ class EncodingTest extends TestCase
             ->withSource($source)
             ->withSource($sources)
             ->withHttps(true)
-            ->send();
+            ->getQuery();
+
+        $payload = $this->client->setQuery($query)
+            ->getQuery()
+            ->getPayload();
+        $payload = json_decode($payload);
+        print_r($payload);
     }
 
     /**

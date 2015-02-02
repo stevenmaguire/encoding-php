@@ -194,6 +194,29 @@ class Client
     }
 
     /**
+     * Set client Query
+     *
+     * @param Query $query
+     *
+     * @return Client
+     */
+    public function setQuery(Query $query)
+    {
+        $this->query = $query;
+        return $this;
+    }
+
+    /**
+     * Get client Query
+     *
+     * @return Query
+     */
+    public function getQuery()
+    {
+        return $this->query;
+    }
+
+    /**
      * Makes a request to the Encoding.com API and returns the response
      *
      * @param  integer|null $skip

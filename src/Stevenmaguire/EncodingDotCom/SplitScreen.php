@@ -1,54 +1,7 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
-use Stevenmaguire\EncodingDotCom\Contracts\Jsonable;
-
-class SplitScreen implements Jsonable
+class SplitScreen extends Model
 {
-    use Traits\GetTrait;
-    use Traits\JsonifyTrait;
-
-    /**
-     * Number of columns
-     *
-     * @var integer
-     */
-    protected $columns;
-
-    /**
-     * Number of rows
-     *
-     * @var integer
-     */
-    protected $rows;
-
-    /**
-     * Number of pixels for left padding
-     *
-     * @var integer
-     */
-    protected $padding_left;
-
-    /**
-     * Number of pixels for right padding
-     *
-     * @var integer
-     */
-    protected $padding_right;
-
-    /**
-     * Number of pixels for bottom padding
-     *
-     * @var integer
-     */
-    protected $padding_bottom;
-
-    /**
-     * Number of pixels for top padding
-     *
-     * @var integer
-     */
-    protected $padding_top;
-
     /**
      * Default padding pixels
      *
@@ -65,8 +18,7 @@ class SplitScreen implements Jsonable
      */
     public function setColumns($columns = 1)
     {
-        $this->columns = $columns;
-        return $this;
+        return $this->setAttribute('columns', $columns);
     }
 
     /**
@@ -78,8 +30,7 @@ class SplitScreen implements Jsonable
      */
     public function setRows($rows = 1)
     {
-        $this->rows = $rows;
-        return $this;
+        return $this->setAttribute('rows', $rows);
     }
 
     /**
@@ -91,8 +42,7 @@ class SplitScreen implements Jsonable
      */
     public function setPaddingLeft($pixels = null)
     {
-        $this->setPadding('padding_left', $pixels);
-        return $this;
+        return $this->setPadding('padding_left', $pixels);
     }
 
     /**
@@ -104,8 +54,7 @@ class SplitScreen implements Jsonable
      */
     public function setPaddingRight($pixels = null)
     {
-        $this->setPadding('padding_right', $pixels);
-        return $this;
+        return $this->setPadding('padding_right', $pixels);
     }
 
     /**
@@ -117,8 +66,7 @@ class SplitScreen implements Jsonable
      */
     public function setPaddingTop($pixels = null)
     {
-        $this->setPadding('padding_top', $pixels);
-        return $this;
+        return $this->setPadding('padding_top', $pixels);
     }
 
     /**
@@ -130,8 +78,7 @@ class SplitScreen implements Jsonable
      */
     public function setPaddingBottom($pixels = null)
     {
-        $this->setPadding('padding_bottom', $pixels);
-        return $this;
+        return $this->setPadding('padding_bottom', $pixels);
     }
 
     /**
@@ -139,12 +86,14 @@ class SplitScreen implements Jsonable
      *
      * @param string $property
      * @param integer $pixels
+     *
+     * @return  SplitScreen
      */
     private function setPadding($property, $pixels)
     {
         if (is_null($pixels)) {
             $pixels = $this->default_padding;
         }
-        $this->$property = $pixels;
+        return $this->setAttribute($property, $pixels);
     }
 }

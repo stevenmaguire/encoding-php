@@ -1,9 +1,6 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
-use Stevenmaguire\EncodingDotCom\Contracts\Jsonable;
-
-class Format implements Jsonable
+class Format extends Model
 {
-    use Traits\GetTrait;
-    use Traits\JsonifyTrait;
+
 }
