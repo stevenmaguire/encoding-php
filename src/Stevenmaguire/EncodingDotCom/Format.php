@@ -1,7 +1,15 @@
 <?php namespace Stevenmaguire\EncodingDotCom;
 
+use Stevenmaguire\EncodingDotCom\Format\AudioOverlay;
+use Stevenmaguire\EncodingDotCom\Format\ClosedCaptions;
+use Stevenmaguire\EncodingDotCom\Format\Meta;
+use Stevenmaguire\EncodingDotCom\Format\TextOverlay;
+use Stevenmaguire\EncodingDotCom\Format\VideoCodecParameters;
+use Stevenmaguire\EncodingDotCom\Format\VideoOverlay;
+use Stevenmaguire\EncodingDotCom\Format\Watermark;
+
 /**
- * @property string $noise_reduction // luma_spatial:chroma_spatial:luma_temp
+ * @property integer $noise_reduction // 0,6
  * @property array $output
  * @property string $time
  * @property string $width
@@ -53,9 +61,9 @@
  * @property integer $bframes // 2/0
  * @property string $gop // cgop|sgop
  * @property array $destination
- * @property array $overlay // Overlay
+ * @property array $overlay // VideoOverlay
  * @property array $text_overlay // TextOverlay
- * @property string $video_codec_parameters // "To see the example for parameters please follow this link below *",
+ * @property array $audio_overlay // AudioOverlay
  * @property string $profile // high/main/baseline
  * @property string $turbo // yes/no
  * @property string $rotate // def|0|90|270
@@ -66,6 +74,7 @@
  * @property string $strip_chapters // yes|no
  * @property ClosedCaptions $closed_captions
  * @property Meta $metadata
+ * @property VideoCodecParameters $video_codec_parameters
  * @property Watermark $logo
  * @property string $type // srt|scc|webvtt|dfxp
  * @property string $strip_formatting // yes, no
@@ -73,5 +82,147 @@
  */
 class Format extends Model
 {
+    /**
+     * Add audio overlay configuration
+     *
+     * @param AudioOverlay $overlay
+     *
+     * @return Format
+     */
+    public function setAudioOverlay(AudioOverlay $overlay)
+    {
+        return $this->mergeArrayAttribute('audio_overlay', $overlay);
+    }
 
+    /**
+     * Set closed captions configuration
+     *
+     * @param ClosedCaptions $meta
+     *
+     * @return Format
+     */
+    public function setClosedCaptions(ClosedCaptions $captions)
+    {
+        return $this->setAttribute('closed_captions', $captions);
+    }
+
+    /**
+     * Add destination
+     *
+     * @param string $destination
+     *
+     * @return Format
+     */
+    public function setDestination($destination)
+    {
+        return $this->mergeArrayAttribute('destination', $destination);
+    }
+
+    /**
+     * Add key frame
+     *
+     * @param string $keyframe
+     *
+     * @return Format
+     */
+    public function setKeyframe($keyframe)
+    {
+        return $this->mergeArrayAttribute('keyframe', $keyframe);
+    }
+
+    /**
+     * Alias for set watermark configuration
+     *
+     * @param Watermark $watermark
+     *
+     * @return Format
+     */
+    public function setLogo(Watermark $watermark)
+    {
+        return $this->setWatermark($watermark);
+    }
+
+    /**
+     * Set meta configuration
+     *
+     * @param Meta $meta
+     *
+     * @return Format
+     */
+    public function setMeta(Meta $meta)
+    {
+        return $this->setAttribute('metadata', $meta);
+    }
+
+    /**
+     * Alias for set meta configuration
+     *
+     * @param Meta $meta
+     *
+     * @return Format
+     */
+    public function setMetaData(Meta $meta)
+    {
+        return $this->setMeta($meta);
+    }
+
+    /**
+     * Add output configuration
+     *
+     * @param string $output
+     *
+     * @return Format
+     */
+    public function setOutput($output)
+    {
+        return $this->mergeArrayAttribute('output', $output);
+    }
+
+    /**
+     * Add text overlay configuration
+     *
+     * @param TextOverlay $overlay
+     *
+     * @return Format
+     */
+    public function setTextOverlay(TextOverlay $overlay)
+    {
+        return $this->mergeArrayAttribute('text_overlay', $overlay);
+    }
+
+    /**
+     * Set video codec paramters configuration
+     *
+     * @param VideoCodecParameters $parameters
+     *
+     * @return Format
+     */
+    public function setVideoCodecParameters(VideoCodecParameters $parameters)
+    {
+        return $this->setAttribute('video_codec_parameters', $parameters);
+    }
+
+    /**
+     * Add video overlay configuration
+     *
+     * @param VideoOverlay $overlay
+     *
+     * @return Format
+     */
+    public function setVideoOverlay(VideoOverlay $overlay)
+    {
+        return $this->mergeArrayAttribute('overlay', $overlay);
+    }
+
+    /**
+     * Set watermark configuration
+     *
+     * @param Watermark $watermark
+     *
+     * @return Format
+     */
+    public function setWatermark(Watermark $watermark)
+    {
+        return $this->setAttribute('logo', $watermark);
+    }
 }

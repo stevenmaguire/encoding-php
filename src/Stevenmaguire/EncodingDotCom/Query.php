@@ -85,36 +85,7 @@ class Query extends Model
      */
     public function addSource($source)
     {
-        $current_sources = $this->getAttribute('source');
-        if (empty($current_sources)) {
-            $current_sources = [];
-        }
-        $current_sources[] = $source;
-        return $this->setAttribute('source', $current_sources);
-    }
-
-    /**
-     * Set split screen configuration
-     *
-     * @param SplitScreen $split_screen
-     *
-     * @return Query
-     */
-    public function setSplitScreen(SplitScreen $split_screen)
-    {
-        return $this->setAttribute('split_screen', $split_screen);
-    }
-
-    /**
-     * Set region
-     *
-     * @param string $region
-     *
-     * @return Query
-     */
-    public function setRegion($region)
-    {
-        return $this->setAttribute('region', $region);
+        return $this->mergeArrayAttribute('source', $source);
     }
 
     /**
@@ -142,18 +113,6 @@ class Query extends Model
     public function setExtended($extended)
     {
         return $this->setAttribute('extended', ($extended ? "yes" : null));
-    }
-
-    /**
-     * Set format configuration
-     *
-     * @param Format $format
-     *
-     * @return Query
-     */
-    public function setFormat(Format $format)
-    {
-        return $this->setAttribute('format', $format);
     }
 
     /**

@@ -87,9 +87,9 @@ class ClientTest extends TestCase
     {
         $urls = ['error_url' => uniqid(), 'success_url' => uniqid(), 'upload_url' => uniqid()];
         $notification = new JsonNotification;
-        $notification->forError($urls['error_url'])
-            ->forSuccess($urls['success_url'])
-            ->forUpload($urls['upload_url']);
+        $notification->setErrorUrl($urls['error_url'])
+            ->setSuccessUrl($urls['success_url'])
+            ->setUploadUrl($urls['upload_url']);
 
         $query = $this->client->withNotification($notification)->getQuery();
 

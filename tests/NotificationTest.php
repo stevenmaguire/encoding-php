@@ -19,7 +19,7 @@ class NotificationTest extends TestCase
         $url = uniqid();
         $notification = new JsonNotification;
 
-        $notification->forError($url);
+        $notification->setErrorUrl($url);
 
         $this->assertEquals($url, $notification->error_url);
     }
@@ -29,7 +29,7 @@ class NotificationTest extends TestCase
         $url = uniqid();
         $notification = new JsonNotification;
 
-        $notification->forSuccess($url);
+        $notification->setSuccessUrl($url);
 
         $this->assertEquals($url, $notification->success_url);
     }
@@ -39,7 +39,7 @@ class NotificationTest extends TestCase
         $url = uniqid();
         $notification = new JsonNotification;
 
-        $notification->forUpload($url);
+        $notification->setUploadUrl($url);
 
         $this->assertEquals($url, $notification->upload_url);
     }

@@ -18,30 +18,6 @@ class SplitScreen extends Model
     private $default_padding = 10;
 
     /**
-     * Set columns
-     *
-     * @param integer $columns
-     *
-     * @return SplitScreen
-     */
-    public function setColumns($columns = 1)
-    {
-        return $this->setAttribute('columns', $columns);
-    }
-
-    /**
-     * Set rows
-     *
-     * @param integer $rows
-     *
-     * @return SplitScreen
-     */
-    public function setRows($rows = 1)
-    {
-        return $this->setAttribute('rows', $rows);
-    }
-
-    /**
      * Set all padding
      *
      * @param integer $pixels

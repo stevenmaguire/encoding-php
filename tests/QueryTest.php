@@ -19,6 +19,13 @@ class QueryTest extends TestCase
         return json_decode($payload);
     }
 
+    public function test_Non_Setter_Methods_Not_Handled()
+    {
+        $random_name = uniqid();
+
+        $this->query->$random_name();
+    }
+
     public function test_It_Can_Set_User_Id()
     {
         $user_id = uniqid();
@@ -123,9 +130,9 @@ class QueryTest extends TestCase
     {
         $urls = ['error_url' => uniqid(), 'success_url' => uniqid(), 'upload_url' => uniqid()];
         $notification = new JsonNotification;
-        $notification->forError($urls['error_url'])
-            ->forSuccess($urls['success_url'])
-            ->forUpload($urls['upload_url']);
+        $notification->setErrorUrl($urls['error_url'])
+            ->setSuccessUrl($urls['success_url'])
+            ->setUploadUrl($urls['upload_url']);
 
         $this->query->setNotification($notification);
 
