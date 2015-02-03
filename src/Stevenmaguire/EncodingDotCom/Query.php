@@ -17,6 +17,9 @@ use \stdClass;
  * @property SplitScreen $split_screen
  * @property array $source
  * @property string $slideshow
+ * @method Query setFormat() setFormat(string $format)
+ * @method Query setRegion() setRegion(string $region)
+ * @method Query setSplitScreen() setSplitScreen(SplitScreen $split_screen)
  */
 class Query extends Model
 {

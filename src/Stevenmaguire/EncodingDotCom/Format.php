@@ -97,7 +97,7 @@ class Format extends Model
     /**
      * Set closed captions configuration
      *
-     * @param ClosedCaptions $meta
+     * @param ClosedCaptions $captions
      *
      * @return Format
      */

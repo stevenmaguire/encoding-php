@@ -2,8 +2,6 @@
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\TransferException;
-use GuzzleHttp\Message\Response;
-use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
 class Client
 {
@@ -288,6 +286,7 @@ class Client
     /**
      * Makes a request to the Encoding.com API and returns the response
      *
+     * @param    string $verb
      * @param    string $path
      * @param    array $parameters
      *
@@ -308,7 +307,7 @@ class Client
     /**
      * Get Http Client
      *
-     * @return GuzzleHttp\Client
+     * @return HttpClient
      */
     public function getClient()
     {
