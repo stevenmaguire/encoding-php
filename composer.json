@@ -11,6 +11,14 @@
             "role" : "Developer"
         }
     ],
+    "keywords": [
+        "api",
+        "oauth1",
+        "endcoding",
+        "video",
+        "endcoding.com",
+        "php"
+    ],
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",
@@ -24,9 +32,6 @@
         "classmap": [
             "tests/TestCase.php"
         ],
-        "psr-0": {
-            "Stevenmaguire\\EncodingDotCom\\": "src/"
-        },
         "psr-4": {
             "Stevenmaguire\\EncodingDotCom\\": "src/"
         }
