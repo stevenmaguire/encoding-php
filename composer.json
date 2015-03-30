@@ -1,7 +1,7 @@
 {
     "name": "stevenmaguire/encoding-php",
     "description": "A php client for consumer Encoding.com API",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "homepage" : "http://github.com/stevenmaguire/encoding-php",
     "authors" : [
         {
