@@ -1,7 +1,7 @@
 {
     "name": "stevenmaguire/encoding-php",
-    "description": "A php client for consumer Encoding.com API",
-    "version": "0.1.0",
+    "description": "A php client for consuming the Encoding.com API",
+    "version": "1.0.0",
     "homepage" : "http://github.com/stevenmaguire/encoding-php",
     "authors" : [
         {
@@ -16,7 +16,6 @@
         "oauth1",
         "endcoding",
         "video",
-        "endcoding.com",
         "php"
     ],
     "license": "MIT",
